@@ -1,0 +1,93 @@
+.signup-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background-color: #f8f8f8;
+}
+
+.signup-form {
+  background: #fff;
+  padding: 2rem 3rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.signup-form h2 {
+  margin-bottom: 0.25rem;
+}
+
+.signup-form p {
+  margin-bottom: 1.25rem;
+  color: #666;
+}
+
+.signup-form label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.signup-form small {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.checkbox-wrapper span {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.signup-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.signup-form .login-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+
+.signup-message {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.signup-message.success {
+  color: green;
+}
+
+.signup-message.error {
+  border: none;
+
+  text-align: center;
+
+  border-radius: 6px;
+  color: rgb(231, 2, 2);
+  
+}

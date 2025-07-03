@@ -1,0 +1,163 @@
+body {
+  margin: 0;
+ 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f6f6f6;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  display: flex;
+  width: 1000px;
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.left-panel {
+  flex: 1;
+  background-color: #ccd1d4;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 42px;
+  margin-bottom: 10px;
+  color: #0074f8;
+}
+
+.left-panel h1 {
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.left-panel p {
+  color: rgb(30, 30, 30);
+  margin-bottom: 20px;
+}
+
+.login-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.right-panel {
+  flex: 1;
+  padding: 50px;
+}
+
+.login-form label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.forgot {
+  text-decoration: none;
+  color: #0074f8;
+  font-size: 14px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-dark {
+  background-color: #111;
+  color: white;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  color: #444;
+}
+
+.divider {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #ddd;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.signup-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+
+.message-box {
+  margin-top: 15px;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.message-box.success {
+  background-color: #e0ffe0;
+  color: green;
+}
+
+.message-box.error {
+  text-align: center;
+  background-color: #ffe0e0;
+  color: red;
+}
