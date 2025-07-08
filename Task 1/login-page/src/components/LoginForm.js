@@ -5,7 +5,7 @@ import '../App.css';
 import logo from '../assets/image.png';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
-
+import { loadRazorpayScript } from '../utils/loadRazorpay';
 
 function LoginForm() {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ function LoginForm() {
   const [isError, setIsError] = useState(false);
 
   // Handle form submission
-  const handleLogin = async (e) => {
+  const handleLogin = async (e) => {     
     e.preventDefault();
     try {
       const res = await axios.post('http://localhost:5000/api/login', {
@@ -34,12 +34,51 @@ function LoginForm() {
       setIsError(false);
 
       // Redirect after 1.5 seconds
-      setTimeout(() => navigate('/dashboard'), 1500);
+      startPayment(user.name, user.email);
+
     } catch (err) {
       setMessage(err.response?.data?.message || 'Login failed');
       setIsError(true);
     }
   };
+  const startPayment = async (userName, userEmail) => {
+  const res = await loadRazorpayScript();
+  if (!res) {
+    alert("Razorpay SDK failed to load. Are you online?");
+    return;
+  }
+
+  // Create order from backend
+  const orderRes = await axios.post("http://localhost:5000/create-order", {
+    amount: 1, // ₹1
+  });
+
+  const order = orderRes.data;
+
+  const options = {
+    key: "rzp_test_eKGodt2q8Phebs", // Replace with your Razorpay key ID
+    amount: order.amount,
+    currency: "INR",
+    name: "WebSphere Pvt Ltd",
+    description: "Account Access Fee",
+    order_id: order.id,
+    handler: function (response) {
+      alert("Payment successful!");
+      navigate("/dashboard");
+    },
+    prefill: {
+      name: userName,
+      email: userEmail,
+      contact: "9999999999",
+    },
+    theme: {
+      color: "#1a73e8",
+    },
+  };
+
+  const rzp = new window.Razorpay(options);
+  rzp.open();
+};
 
   return (
     <div className='container'>
